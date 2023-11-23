@@ -1,0 +1,11 @@
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\bin\Debug\net6.0\DOMAIN.deps.json
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\bin\Debug\net6.0\DOMAIN.dll
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\bin\Debug\net6.0\DOMAIN.pdb
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\DOMAIN.GeneratedMSBuildEditorConfig.editorconfig
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\DOMAIN.AssemblyInfoInputs.cache
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\DOMAIN.AssemblyInfo.cs
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\DOMAIN.csproj.CoreCompileInputs.cache
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\DOMAIN.dll
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\refint\DOMAIN.dll
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\DOMAIN.pdb
+C:\GIT\Pessoal\ToDoList\ToDoList\ToDoList\DOMAIN\obj\Debug\net6.0\ref\DOMAIN.dll
