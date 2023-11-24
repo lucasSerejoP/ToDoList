@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using System.Text.Json.Serialization;
 
-namespace DOMAIN.Aggregates.Task
+namespace API.Application.Commands
 {
-    public class Tasks
+    public class DeleteTaskCommand : IRequest<bool>
     {
+        [JsonIgnore]
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

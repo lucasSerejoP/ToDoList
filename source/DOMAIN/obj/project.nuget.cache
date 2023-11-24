@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J/QqkqYlE4CrCLVuflJ1695+lFFaLygPu7Nlx5Rq8jOjt9ByNIF6DsIoWWifHTZpeEZf6cUrKg2eq7k14NJAyg==",
+  "dgSpecHash": "SEmiivXLc1pENJKtZvwK5f4/mjlQ7hIbiWRND23Mhxkmr6BYDz/82Y3RHNeELEhPM1rJr/VHzWYBiSmYSd2N0w==",
   "success": true,
-  "projectFilePath": "C:\\GIT\\Pessoal\\ToDoList\\ToDoList\\ToDoList\\DOMAIN\\DOMAIN.csproj",
+  "projectFilePath": "C:\\GIT\\Pessoal\\ToDoList\\ToDoList\\source\\DOMAIN\\DOMAIN.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

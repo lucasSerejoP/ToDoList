@@ -7,8 +7,10 @@ using API.Application.Commands;
 using API.Application.Queries;
 using INFRA.Data;
 using Microsoft.EntityFrameworkCore;
-using DOMAIN.Aggregates.TaskAggregates;
+using DOMAIN.AggregatesModel.TaskAggregates;
 using INFRA.Data.Repository;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,14 +24,23 @@ builder.Services.AddDbContext<TaskDbContext>(options =>
 // Adicionar o MediatR
 builder.Services.AddMediatR(typeof(CreateTaskCommand).Assembly);
 
+
 // Adicionar o repositório
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 // Adicionar o Swagger
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoList API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo 
+    {
+        Title = "TodoList API",
+        Description ="Api To do list",
+        Version = "v1" });
 });
+// Adicionar o IDbConnection
+builder.Services.AddTransient<IDbConnection>(provider => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Adicionar o TaskQueries
+builder.Services.AddScoped<ITaskQueries, TaskQueries>();
 
 var app = builder.Build();
 
@@ -38,17 +49,16 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoList API V1");
+    options.EnableFilter();
+});
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseRouting();
-
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoList API V1");
-});
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

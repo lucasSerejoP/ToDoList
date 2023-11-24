@@ -1,33 +1,44 @@
-﻿using DOMAIN.Aggregates.Task;
-using DOMAIN.Aggregates.TaskAggregates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using model = DOMAIN.AggregatesModel.TaskAggregates;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace INFRA.Data.Repository
 {
-    public class TaskRepository : ITaskRepository
+    public class TaskRepository : model.ITaskRepository
     {
-        public Task<int> CreateTaskAsync(Tasks task)
+        private readonly TaskDbContext _context;
+        public TaskRepository(TaskDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<bool> CheckExistenceOfTitle(string title) =>
+            await _context.Task.AnyAsync(t => t.Title == title);
+
+        public async Task<int> CreateTaskAsync(model.Task task)
+        {
+            await _context.AddAsync(task);
+            await _context.SaveChangesAsync();
+            return task.Id;
         }
 
-        public Task<bool> DeleteTaskAsync(int id)
+        public async Task<bool> DeleteTaskAsync(model.Task task)
         {
-            throw new NotImplementedException();
+            _context.Remove(task);
+            var entries =  await _context.SaveChangesAsync();
+            return entries > 0;
         }
 
-        public Task<Tasks> GetByIdTasksAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<model.Task?> GetByIdTasksAsync(int id) =>
+            await _context.Task
+            .AsNoTracking()
+            .FirstOrDefaultAsync(it => it.Id == id);
 
-        public Task<Tasks> UpdateTaskAsync(Tasks task)
+        public async Task<bool> UpdateTaskAsync(model.Task task)
         {
-            throw new NotImplementedException();
+            _context.Update(task);
+
+            var entries = _context.SaveChanges();
+            return entries > 0;
         }
     }
 }
