@@ -36,6 +36,9 @@ builder.Services.AddSwaggerGen(c =>
         Title = "TodoList API",
         Description ="Api To do list",
         Version = "v1" });
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
 });
 // Adicionar o IDbConnection
 builder.Services.AddTransient<IDbConnection>(provider => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));

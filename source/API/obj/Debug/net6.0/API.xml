@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.TaskController.CreateTask(API.Application.Commands.CreateTaskCommand)">
+            <summary>
+            Criar tarefa
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:API.Controllers.TaskController.UpdateTask(System.Int32,API.Application.Commands.UpdateTaskCommand)">
+            <summary>
+            Atualizar tarefa
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.TaskController.DeleteTask(System.Int32)">
+            <summary>
+            Deletar tarefa
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.TaskController.GetAllAsync">
+            <summary>
+            Listar todas as  tarefas
+            </summary>
+        </member>
+    </members>
+</doc>
